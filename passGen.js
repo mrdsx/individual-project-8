@@ -1,7 +1,7 @@
 const SYMBOLS = {
   uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   lowercase: "abcdefghijklmnopqrstuvwxyz",
-  digit: "0123456789",
+  digit: "01234567890123456789",
   special: "!@#$%^&*()-_=+[]{}|;:,.<>?"
 };
 const MAX_PASS_LEN = 128;
@@ -20,8 +20,9 @@ const randomPassField = document.getElementById("random-pass");
 const passSymbolOptions = document.querySelector(".pass-symbols-options");
 const passRange = document.getElementById("pass-length-range");
 
-const genPassBtn = document.querySelector("button[id=\"copy-pass\"]");
-addActionsToGenPassBtn();
+const copyPassBtn = document.querySelector("button[id=\"copy-pass\"]");
+copyPassBtn.addEventListener("click", (e) => copyPass(e));
+addHoverEffectToBtn(copyPassBtn);
 
 const charTypes = ["uppercase", "lowercase", "digit", "special"];
 charTypes.forEach(setupCheckbox);
@@ -67,7 +68,6 @@ function showCopySuccess(e) {
   }, 1000);
 }
 
-// password parameters aren't available as a global object
 function getPassParams() {
   let passParams = {
     len: passRange.value
@@ -129,12 +129,11 @@ function setupCheckbox(type) {
   });
 }
 
-function addActionsToGenPassBtn() {
-  genPassBtn.addEventListener("click", (e) => copyPass(e));
-  genPassBtn.addEventListener("mouseover", () => {
-    genPassBtn.style.background = BTN_COLORS.default;
+function addHoverEffectToBtn(btn) {
+  btn.addEventListener("mouseover", () => {
+    copyPassBtn.style.background = BTN_COLORS.default;
   });
-  genPassBtn.addEventListener("mouseout", () => {
-    genPassBtn.style.background = BTN_COLORS.hover;
+  btn.addEventListener("mouseout", () => {
+    copyPassBtn.style.background = BTN_COLORS.hover;
   });
 }

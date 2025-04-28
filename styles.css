@@ -90,7 +90,7 @@ main {
 }
 
 /* <-- output and buttons --> */
-.pass-actions, .pass-buttons {
+.pass-actions, .pass-gen-buttons, .pass-check-buttons {
   display: flex;
   flex-direction: column;
   gap: .5rem;
@@ -99,11 +99,11 @@ main {
   cursor: text;
   width: 100%;
 }
-#generate-pass {
+#generate-pass, #paste-pass {
   background: #4679c8;
   color: white;
 }
-#generate-pass:hover {
+#generate-pass:hover, #paste-pass:hover {
   background: #406eb4;
 }
 

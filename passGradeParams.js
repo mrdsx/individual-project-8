@@ -3,21 +3,21 @@ const PASS_GRADE_PARAMS = {
     key: "weak",
     subScore: 1,
     totalScore: 3,
-    text: "Слабый",
+    text: "слабый",
     color: "red"
   },
   medium: {
     key: "medium",
     subScore: 2,
     totalScore: 5,
-    text: "Средний",
+    text: "средний",
     color: "orange"
   },
   strong: {
     key: "strong",
     subScore: 3,
     totalScore: 6,
-    text: "Надёжный",
+    text: "надёжный",
     color: "green"
   }
 };

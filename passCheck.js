@@ -5,6 +5,20 @@ const SPECIAL_CHARS = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
 const passCheck = document.querySelector(".pass-check");
 const strengthGrade = passCheck.querySelector(".strength-grade");
 
+const passInput = document.querySelector("input[id=\"pass\"]");
+const pastePassBtn = document.querySelector("button[id=\"paste-pass\"]");
+pastePassBtn.addEventListener("click", pastePass);
+
+async function pastePass() {
+  try {
+    const val = await navigator.clipboard.readText();
+    passInput.value = val;
+    showPassStrength();
+  } catch (err) {
+    console.error("Failed to read clipboard contents: ", err);
+  }
+}
+
 function showPassStrength() {
   const pass = passCheck.querySelector("input[id=\"pass\"]").value;
   const grade = getPassStrength(pass);

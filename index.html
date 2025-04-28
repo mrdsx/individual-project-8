@@ -30,15 +30,15 @@
             <span>Использовать:</span>
             <div class="pass-symbols-options">
               <div class="include-symbols">
-                <input type="checkbox" id="uppercase-symbols">
+                <input type="checkbox" id="uppercase-symbols" checked>
                 <label for="uppercase-symbols">Символы верхнего регистра</label>
               </div>
               <div class="include-symbols">
-                <input type="checkbox" id="lowercase-symbols">
+                <input type="checkbox" id="lowercase-symbols" checked>
                 <label for="lowercase-symbols">Символы нижнего регистра</label>
               </div>
               <div class="include-symbols">
-                <input type="checkbox" id="digit-symbols">
+                <input type="checkbox" id="digit-symbols" checked>
                 <label for="digit-symbols">Числа</label>
               </div>
               <div class="include-symbols">
@@ -51,7 +51,7 @@
             <div class="pass-output">
               <input type="text" id="random-pass" readonly>
             </div>
-            <div class="pass-buttons">
+            <div class="pass-gen-buttons">
               <input type="button" value="Сгенерировать пароль" id="generate-pass" onclick="showPass()">
               <button id="copy-pass">Скопировать</button>
             </div>
@@ -60,9 +60,12 @@
   
         <div class="pass-check app-tab">
           <h2>Проверка пароля</h2>
-          <input type="text" id="pass" oninput="showPassStrength()">
-          <div class="pass-strength">Сложность:
-            <span class="strength-grade">Слабый</span>
+          <div class="pass-check-buttons"> 
+            <input type="text" id="pass" oninput="showPassStrength()">
+            <button type="button" id="paste-pass">Вставить</button>
+          </div>
+          <div class="pass-strength">Оценка пароля:
+            <span class="strength-grade"></span>
           </div>
         </div>
       </div>
