@@ -1,12 +1,12 @@
 const MODES = {
   passGen: {
     tabClass: "pass-gen",
-    text: "генерация пароля"
+    text: "генерация пароля",
   },
   passCheck: {
     tabClass: "pass-check",
-    text: "проверка пароля"
-  }
+    text: "проверка пароля",
+  },
 };
 let activeMode = MODES.passGen;
 
@@ -41,7 +41,7 @@ function showAllTabs(tabList) {
 }
 
 function showSpecificTab(tabList) {
-  tabList.forEach(tab => {
+  tabList.forEach((tab) => {
     if (!tab.classList.contains(activeMode.tabClass)) {
       tab.style.display = "none";
     }

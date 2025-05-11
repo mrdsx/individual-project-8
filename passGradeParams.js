@@ -4,20 +4,20 @@ const PASS_GRADE_PARAMS = {
     subScore: 1,
     totalScore: 3,
     text: "слабый",
-    color: "red"
+    color: "red",
   },
   medium: {
     key: "medium",
     subScore: 2,
     totalScore: 5,
     text: "средний",
-    color: "orange"
+    color: "orange",
   },
   strong: {
     key: "strong",
     subScore: 3,
     totalScore: 6,
     text: "надёжный",
-    color: "green"
-  }
+    color: "green",
+  },
 };

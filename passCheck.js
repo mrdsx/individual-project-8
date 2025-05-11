@@ -5,8 +5,8 @@ const SPECIAL_CHARS = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
 const passCheck = document.querySelector(".pass-check");
 const strengthGrade = passCheck.querySelector(".strength-grade");
 
-const passInput = document.querySelector("input[id=\"pass\"]");
-const pastePassBtn = document.querySelector("button[id=\"paste-pass\"]");
+const passInput = document.querySelector('input[id="pass"]');
+const pastePassBtn = document.querySelector('button[id="paste-pass"]');
 pastePassBtn.addEventListener("click", pastePass);
 
 async function pastePass() {
@@ -20,7 +20,7 @@ async function pastePass() {
 }
 
 function showPassStrength() {
-  const pass = passCheck.querySelector("input[id=\"pass\"]").value;
+  const pass = passCheck.querySelector('input[id="pass"]').value;
   const grade = getPassStrength(pass);
   changeStrengthGradeStyles(grade);
 }
@@ -73,12 +73,9 @@ function evaluatePassStrength(totalScore) {
     throw new Error("Total score can't be negative");
   }
 
-  const isWeak =
-    totalScore > 0 &&
-    totalScore <= weak.totalScore;
+  const isWeak = totalScore > 0 && totalScore <= weak.totalScore;
   const betweenWeakAndMedium =
-    totalScore > weak.totalScore &&
-    totalScore <= medium.totalScore;
+    totalScore > weak.totalScore && totalScore <= medium.totalScore;
 
   if (isWeak) {
     return weak.key;
@@ -97,5 +94,5 @@ function strHasLettersAndNumbers(str) {
 }
 
 function getJSON(path) {
-  return fetch(path).then(response => response.json());
+  return fetch(path).then((response) => response.json());
 }

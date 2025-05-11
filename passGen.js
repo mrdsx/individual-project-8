@@ -2,25 +2,25 @@ const SYMBOLS = {
   uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   lowercase: "abcdefghijklmnopqrstuvwxyz",
   digit: "01234567890123456789",
-  special: "!@#$%^&*()-_=+[]{}|;:,.<>?"
+  special: "!@#$%^&*()-_=+[]{}|;:,.<>?",
 };
 const MAX_PASS_LEN = 128;
 
 const copyBtnContents = {
   copy: "Скопировать",
-  copied: "Скопировано!"
+  copied: "Скопировано!",
 };
 
 const BTN_COLORS = {
   default: "rgb(240, 240, 240)",
-  hover: "#fff"
+  hover: "#fff",
 };
 
 const randomPassField = document.getElementById("random-pass");
 const passSymbolOptions = document.querySelector(".pass-symbols-options");
 const passRange = document.getElementById("pass-length-range");
 
-const copyPassBtn = document.querySelector("button[id=\"copy-pass\"]");
+const copyPassBtn = document.querySelector('button[id="copy-pass"]');
 copyPassBtn.addEventListener("click", (e) => copyPass(e));
 addHoverEffectToBtn(copyPassBtn);
 
@@ -36,7 +36,13 @@ function showPass() {
 function generatePass(passParams) {
   const { len, uppercase, lowercase, digit, special } = passParams;
 
-  const paramsValid = validatePassParams({ len, uppercase, lowercase, digit, special });
+  const paramsValid = validatePassParams({
+    len,
+    uppercase,
+    lowercase,
+    digit,
+    special,
+  });
   if (!paramsValid) return "";
 
   const chars = getChars({ uppercase, lowercase, digit, special });
@@ -49,7 +55,8 @@ function copyPass(e) {
   const copyText = randomPassField;
   if (!copyText.value) return;
 
-  navigator.clipboard.writeText(copyText.value)
+  navigator.clipboard
+    .writeText(copyText.value)
     .then(showCopySuccess(e))
     .catch((err) => {
       console.error("Ошибка при копировании пароля!");
@@ -70,11 +77,13 @@ function showCopySuccess(e) {
 
 function getPassParams() {
   let passParams = {
-    len: passRange.value
+    len: passRange.value,
   };
 
   charTypes.forEach((type) => {
-    passParams[type] = passSymbolOptions.querySelector(`#${type}-symbols`).checked;
+    passParams[type] = passSymbolOptions.querySelector(
+      `#${type}-symbols`
+    ).checked;
   });
   return passParams;
 }
