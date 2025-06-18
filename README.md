@@ -1,6 +1,7 @@
 # Password Generation and Checking web app
 
 This is the web app designed for random password generation and checking their strength.
+<br/>
 ![Password Check and Generation UI](./assets/password-check-and-generation-site-ui.png)
 
 ## Features
